@@ -1,0 +1,10 @@
+{% if messages %}
+{% for message in messages %}
+   <div class="messages flex justify-evenly items-center message {{ message.tags }}" id="messagebody">        
+           <div class="font-sen">
+               <p>{{ message }}</p>
+           </div>      
+       <button class="text-white outline outline-1 w-8 text-[25px]" id="close_message">&times;</button>
+   </div>
+{% endfor %}
+{% endif %}

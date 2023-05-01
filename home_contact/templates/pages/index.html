@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="w-full mt-[140px] max-sm:w-[500px] max-sm:mt-0 max-md:w-[768px] max-lg:w-[1024px]">
+    {% include 'messages.html' %}
+    <section class="bg-img h-[500px]">
+        <div class="w-[300px] p-3 z-0 bg-white opacity-[0.9] border mx-[40%] text-center inline-block my-[150px] max-sm:my-[200px] max-sm:mx-[20%]">
+            <h3 class="">Write reviews of your current reads!</h3>
+            <h3 class="">Read what others say about your favorite book!</h3>
+        </div>
+
+    <!-- end of first section  -->
+
+
+    <!-- second section  -->
+    <section class="w-full py-[200px] ">
+        <div class="text-center p-4 w-full  max-w-[500px] mx-auto max-sm:mx-0 ">
+            <p>Express your thoughts on your books through <span>B&R</span>. 
+                Let people know what you think about the book you just put down. 
+                B&R strives to create a place where you can freely give your honest thoughts and 
+                <span>reviews</span> on your current <span>reads!</span>
+            </p>
+        </div>
+    </section>
+    <!-- end of second section  -->
+
+
+    <!-- third section  -->
+    <hr class="border-t-1 border-t-black">
+
+    <section class=" bg-[#959d90]  h-[500px] p-3 max-sm:h-auto">
+        <!-- featured posts  -->
+        <a href="" class="block text-right w-full p-3 underline text-[17px] font-sen mb-3 hover:text-white max-sm:mb-0 max-sm:w-[300px]" >see more</a>
+        <div class="row my-[100px] flex flex-row justify-around flex-nowrap max-sm:flex-col mt-1 mb-5 gap-6">
+            <div class="col bg-white flex border gap-2 w-[450px] h-[200px]">
+                <img src="" alt="blog-image" class="p-2 rounded-[10px] w-[150px] h-[200px]">
+                <div class=" w-[350px] h-[200px] p-2">
+                    <a href="post.html" class="text-xl font-semibold font-sen block mb-3 hover:underline">
+                        <h5 class="">Title of blogTitle of blogTitle of blogTitle of blogTitle of blog</h5>
+                    </a>
+                    
+                    <p class="font-sen font-extralight text-stone-600">Author Nmae</p>
+                    <p class="font-sen font-extralight text-stone-600">time written</p>  
+                </div>
+            </div>
+            <div class="col bg-white flex border  gap-2  w-[450px] h-[200px]">
+                <img src="" alt="blog-image" class="p-2 rounded-[10px] w-[150px] h-[200px]">
+                <div class=" w-[350px] h-[200px] p-2">
+                    <a href="post.html" class="text-xl font-semibold font-sen block mb-3 hover:underline">
+                        <h5 class="">Title of blogTitle of blogTitle of blogTitle of blogTitle of blog</h5>
+                    </a>
+                    
+                    <p class="font-sen font-extralight text-stone-600">Author Nmae</p>
+                    <p class="font-sen font-extralight text-stone-600">time written</p>  
+                </div>
+            </div>
+            <div class="col bg-white flex border gap-2  w-[450px] h-[200px]">
+                <img src="" alt="blog-image" class="p-2 rounded-[10px] w-[150px] h-[200px]">
+                <div class=" w-[350px] h-[200px] p-2">
+                    <a href="post.html" class="text-xl font-semibold font-sen block mb-3 hover:underline">
+                        <h5 class="">Title of blogTitle of blogTitle of blogTitle of blogTitle of blog</h5>
+                    </a>
+                    
+                    <p class="font-sen font-extralight text-stone-600">Author Nmae</p>
+                    <p class="font-sen font-extralight text-stone-600">time written</p>  
+                </div>
+            </div>
+        </div>
+
+        <!-- end of featured posts  -->
+
+    </section>
+    <div id="contact" class="h-[150px] max-sm:mt-1 max-sm:h-[50px]"></div>
+    
+    <!-- fourth layer  -->
+
+    
+    <section class=" p-3 mb-20 ">
+        
+        <!-- contact beginning  -->
+        <div class="text-center">
+            <h2 class="font-sen text-2xl">Contact us</h2>
+        </div>
+        <div class="w-[500px] border mx-auto bg-[#bba58f] max-sm:w-[350px]">
+            <form action="" method="post">
+                <div class="p-3">
+                    <input type="text" id="" class="border w-[470px] p-3 font-sen rounded-[5px] focus:outline-none max-sm:w-[320px]" placeholder="subject">
+                </div>
+
+                <div class="p-3">
+                    <input type="email" id="" class="border w-[470px] p-3 font-sen rounded-[5px] focus:outline-none max-sm:w-[320px]" placeholder="email address">
+                </div>
+
+                <div class="p-3">
+                    <textarea type="text" cols="40" rows="10" id="" class="border w-[470px] p-3 font-sen rounded-[5px] focus:outline-none max-sm:w-[320px]" placeholder="message"></textarea>
+                </div>
+            </form>
+        </div>
+
+        <!-- contact end -->
+
+    </section>
+
+    <!-- end of third layer  -->
+    <!-- <div class="w-full mt-20"></div>
+    <div class="w-full mt-20"></div> -->
+    <!-- <hr class="border-t-1 border-t-black"> -->
+   
+</main>
+{% endblock %}

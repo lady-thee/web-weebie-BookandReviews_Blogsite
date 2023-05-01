@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+    <main class="w-full mb-[200px] z-0 mt-[150px]  max-sm:w-[500px] max-sm:mt-0 max-md:w-[768px] max-lg:w-[1024px]">
+        <!-- <hr class="border-t-1 border-t-black"> -->
+
+        <div class="w-full  max-md:mt-[150px] p-5 max-sm:w-[500px] max-sm:mt-[100px]">
+            <form action="" method="post">
+                <div class="">
+                    <input type="search" value="" id="" class="block border border-t-none border-b-2 border-b-black o w-[500px] mx-auto p-3 font-sen focus:outline-none max-sm:w-[320px]" placeholder="search">
+                </div>
+            </form>
+        </div>
+        <hr class="border-t-1 border-t-grey">
+
+        <section class="h-full  mt-6  p-3 max-sm:h-auto">
+            <!-- featured posts  -->
+            <div class="row my-[100px] max-h-[100%] flex flex-row gap-6 justify-items-start flex-wrap max-sm:flex-col mt-1 mb-5">
+                {% for post in posts %}
+                <div class="col  flex border  gap-2 w-[450px] h-[200px]">
+                    <img src="{{ post.post_image.url }}" alt="blog-image" class="p-2 rounded-[10px] w-[150px] h-[200px]">
+                    <div class=" w-[350px] h-[200px] p-2">
+                        <a href="{% url 'post' post.id %}" class="text-xl font-semibold font-sen block mb-3 hover:underline">
+                            <h5 class="">{{ post.post_title }}</h5>
+                        </a>
+                        
+                        <p class="font-sen font-extralight text-stone-600">{{ post.owner }}</p>
+                        <p class="font-sen font-extralight text-stone-600">{{ post.created_time }}</p>  
+                    </div>
+                </div>
+                {% endfor %}
+                
+
+               
+            </div>
+
+            <!-- end of featured posts  -->
+
+        </section>
+
+      
+        
+    </main>
+
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    {% include 'messages.html' %}
+    <main class=" mb-[200px] z-0 mt-[150px]  max-sm:mt-0 ">
+        <hr class="border-t-1 border-t-black">
+        <div class="my-5 py-3"></div>
+        <div class="my-5 py-3"></div>
+        <section class="width p-4  bg-white">
+            
+           <div class="form-c  shadow-md bg-[#bba58f]">
+            
+                <form action="{% url 'create' %}" method="post" class="form-control" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <!-- {{ form.as_p }} -->
+                    
+                    <div class="w-[300px] shadow-md">
+                        <h4 class="h4 text-white font-sen"><b>Create Post</b></h4>
+                    </div>
+                    <div class="py-3">
+                        <input class=" p-2 w-[500px]  rounded-sm max-sm:w-[300px]" type="text" name="post_title" id="title" placeholder="Enter post title" required>
+                    </div>
+
+                    <div class="py-3">
+                        <input class=" p-2 w-[500px] border rounded-sm max-sm:w-[300px]" type="file" name="post_image" accept="image/*" id="title" >
+                    </div>
+
+                    <div class="py-3 overflow-auto w-[200px] h-[300px] border border-black bg-white">
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="fantasy" id=""> fantasy
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="horror" id=""> horror
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="thriller" id=""> thriller
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="paranormal" id=""> paranormal
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="historical fiction" id=""> african fiction
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="autobiography" id=""> autobiography
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="biography" id=""> biography
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="art" id=""> art
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="true crime" id=""> true crime
+                        </div>     
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="magic" id=""> magic
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="dystopian" id=""> dystopian
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="women" id=""> women
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="lgbtq+" id=""> LGBTQ+
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="motivational" id=""> motivational
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="fiction" id=""> fiction
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="non-fiction" id=""> non-fiction
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="short story" id=""> short story
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="essay" id=""> essay
+                        </div> 
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="crime fiction" id=""> crime fiction 
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="contemporary" id=""> contemporary
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="contemporary romanace" id=""> contemporary romance
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="romance" id=""> romance
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="coming of age" id=""> coming of age
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="young adult" id=""> young adult
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="self help" id=""> self help
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="suspense" id=""> suspense
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="mystery" id=""> mystery
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="adventure" id=""> adventure
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="humor" id=""> humor
+                        </div> 
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="children's book" id=""> children's book
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="science-fiction" id=""> science-fiction
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="food" id=""> food
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="drink" id=""> drink
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="young adult" id=""> young adult
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="historical romance" id=""> historical romance
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="graphic novel" id=""> graphic novel
+                        </div>
+                        <div class="p-1 border hover:bg-blue-400 cursor-pointer font-sans">
+                            <input type="checkbox" name="genre" value="historical fiction" id=""> historical fiction
+                        </div>
+                        
+                         
+
+                        <!-- <input class=" p-2 w-[500px] border rounded-sm max-sm:w-[300px]" multiple type="text" name="tags"  id="tags" placeholder="include tags with a hash, eg:#horror" > -->
+                    </div>
+
+                    <div class="py-3">
+                        <textarea cols="30" rows="20" class="overflow-auto p-2 w-[500px]  rounded-sm max-sm:w-[300px]" type="text" name="post_body" id="title" placeholder="include your article" required></textarea>
+                    </div>
+
+                    <div class="py-3">
+                        <button type="submit" class="bg-white p-2 w-[100px] border rounded-sm max-sm:w-[100px]" type="submit" value="submit" name="submit_btn"  id="button" >create</button>
+                    </div>
+                </form>
+
+                
+           </div>
+        </section>
+
+      
+        
+    </main>
+
+{% endblock %}

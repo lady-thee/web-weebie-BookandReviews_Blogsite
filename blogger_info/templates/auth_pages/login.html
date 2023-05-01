@@ -1,0 +1,43 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+    <main class=" mb-[200px] z-0 mt-[150px]  max-sm:mt-0 ">
+        <hr class="border-t-1 border-t-black">
+        <div class="my-5 py-3"></div>
+        <div class="my-5 py-3"></div>
+        {% include 'messages.html' %}
+        <section class="width p-4  bg-white"> 
+           <div class="form-c  shadow-md bg-[#bba58f]">
+                <form action="" method="post" class="form-control">
+                    {% csrf_token %}
+                    <div class="w-[350px]  inline-block shadow-md">
+                        <h4 class="h4 text-white font-sen"><b>Log In</b></h4>
+                        <a href="{% url 'signup' %}" class="underline">New member?</a>
+                    </div>
+                    <div class="my-1 py-1"></div>
+                    <hr class="border-t-1 border-t-black">
+                    <div class="my-1 py-1"></div>
+
+                    <div class="py-3">
+                        <input class=" p-2 w-[500px] border rounded-sm max-sm:w-[300px]"  type="email" name="email"  id="email" placeholder="email" >
+                    </div>
+
+                    <div class="py-3">
+                        <input class=" p-2 w-[500px] border rounded-sm max-sm:w-[300px]"  type="password" name="password"  id="password" placeholder="password" >
+                    </div>
+
+                    <div class="py-3">
+                        <input class="bg-white p-2 w-[100px] border rounded-sm max-sm:w-[100px]" type="submit" value="submit" name="submit_btn"  id="button" >
+                    </div>
+                </form>
+
+                
+           </div>
+        </section>
+
+      
+        
+    </main>
+
+{% endblock %}

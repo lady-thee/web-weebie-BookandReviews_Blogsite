@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+    <main class="w-full mb-[200px] z-0 mt-[150px]  max-sm:w-[500px] max-sm:mt-0 max-md:w-[768px] max-lg:w-[1024px]">
+        <hr class="border-t-1 border-t-black">
+        <div class="my-5 py-3"></div>
+        <section class=" max-w-[90em] max-sm:mt-[55px] mx-auto">
+            <div class="row grid grid-cols-3  gap-7 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-1 ">
+                
+                <div class=" col-span-2 p-3 my-3">
+                    <div class="">
+                        <img src="{{ post.post_image.url }}" class="max-h-[70vh] w-full rounded-md shadow-lg " alt="book cover">
+                    </div>
+                         <div class="my-2 py-3"></div>
+                         <hr class="border-t-1 border-t-gray-400">
+                    <div class="my-1 py-3"></div>
+                    <h4 class="font-light"><b>{{ post.post_title }}</b></h4>
+                         <div class="my-1 py-2"></div>
+                         <hr class="border-t-1 border-t-gray-400">
+                    <div class="my-1 py-2"></div>
+
+                        <div class="flex gap-7  items-center">
+                            <div class="w-[100px] ">
+                                <img src="{{ post.owner.display_pic.url }}" class="w-[200px] h-[90px] rounded-[50%] outline outline-[#e7ddd3]" alt="profile id">
+                            </div>
+                            <div class="px-2">
+                                <a href="profile.html" class="">
+                                    <p class="text-gray-900 font-thin font-sen mb-0">{{ post.owner }}</p>
+                                    <p class="text-gray-600 font-light font-sen text-[13px]">{{ post.created_time }}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="my-1 py-1"></div>
+                    <div class="flex gap-4">
+                     {% for vote in post.vote_total %}   
+                        {% if vote.value == 'UP VOTE' %}
+                        <button  class="inline-block border p-3"><span>{{ vote }}</span> like</button>
+
+                        {% elif vote.value == 'DOWN VOTE' %}
+                        <button class="inline-block border p-3"><span>{{ vote }}</span> dislike</button>
+                        {% else %}
+                            <button class="text-black">No likes yet</button>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    <div class="my-1 py-1"></div>
+                    
+                    <div class="flex gap-4">
+                        {% for tag in post.tags.all %}
+                        <span  class="font-sen text-[13px] border font-light text-gray-600">{{ tag }}</span>
+                        {% endfor %}
+                        
+                    </div>
+                    <div class="my-1 py-1"></div>
+
+                    <div class="p-2">
+                        <hr class=" border-t-gray-400 border-dotted">
+                        <div class="my-1 py-2"></div>
+                        <p class="font-sans text-lg text-justify  break-words tracking-widest max-sm:text-sm">
+                           {{ post.post_body }}
+                        </p>
+
+                       
+                    </div>
+                </div>
+
+                <div class=" col2 py-3  my-3 bg-[#e7ddd3] max-sm:bg-[#e7ddd3] ">
+                    <div class="my-1 py-2"></div>
+                     
+                    <div class=" h-full mb-16">
+                        <div class=" max-md:mt-[150px] mx-auto p-5 max-sm:w-[300px] max-sm:mt-[100px] inline-block">
+                            <form action="" method="post">
+                                <div>
+                                    <input type="search" name="search" value="" id="search" class="border-b-2 w-[350px] p-3 font-sen focus:outline-none max-sm:w-[320px]"
+                                     placeholder="leave a comment">
+                                    <input type="submit" value="send" class="border p-2 rounded-sm text-white bg-[#959d90]">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="my-1 py-2"></div>
+                        <h5 class="p-5 text-gray-900 font-bold text-[20px] font-sen mb-0"><b>Comments</b></h5>
+                        <div class="my-1 py-2"></div>
+                        <hr class="border-t-1 border-t-white">
+                      
+
+                        <div class="h-[1200px] overflow-auto px-2 py-3 max-sm:h-[1500px]">
+                           {% for comment in post.comments_set.all %} 
+                                {% if comment.comment_body %}
+                                    <div class="border p-3 rounded-md mb-6 bg-white">
+                                        <a href="" class="mb-1">
+                                            <b class="text-gray-900 font-semibold font-sen mb-0">{{ comment.owner }} </b>
+                                            <span class="text-gray-600 font-light font-sen text-[13px]">- {{ comment.created_time }}</span>
+                                        </a>
+                                        <p class="text-gray-900 font-thin font-sen text-[14.5px]">{{ comment.comment_body|linebreaksbr }}</p>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                           
+                        </div>
+                        
+
+                        
+                    
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+        </section>
+
+      
+       
+    </main>
+
+{% endblock %}

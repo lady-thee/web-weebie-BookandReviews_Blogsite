@@ -1,0 +1,133 @@
+{% extends 'base3.html' %}
+
+{% block content %}
+<main class="container  w-full mb-[200px] z-0 mt-[150px]  max-sm:w-[500px] max-sm:mt-0 max-md:w-[768px] max-lg:w-[1024px]">
+    <hr class="border-t-1 border-t-black">
+    <div class="my-5 py-3"></div>
+    <section class="max-w-[90em] max-sm:mt-[55px] mx-auto">
+        <div class="">
+            <div class="row grid grid-cols-3 grid-rows-2 gap-7 max-sm:grid-cols-1 max-sm:grid-rows-3">
+                <div class="col1 p-3 border shadow-xl px-12">
+                    <img src="{{ request.user.profile.display_pic.url }}" alt="profile picture"
+                    class="w-[400px] h-[400px] rounded-[50%]">
+                    <div class="my-1 py-3"></div>
+                    <div class="">
+                        <h4 class="font-sen font-bold text-[20px]">{{ request.user.profile.firstname }} {{ request.user.profile.lastname }}</h4>
+                        <div class="flex my-3 p-2  gap-7 shadow-lg">
+                            <p class="text-center  p-2">
+                                <strong>13.5k</strong>
+                                <br>
+                                <span class="font-sen font-light text-[13px]">subscribers</span>
+                            </p>
+
+                            <p class="text-center  p-3">
+                                <strong>10</strong>
+                                <br>
+                                <span class="font-sen font-light text-[13px]">posts</span>
+                            </p>
+                        </div>
+                        <div class="my-1 py-1"></div>
+                        <div class="flex gap-4">
+                            <a href="" class="border border-black p-2  block w-[100px] bg-[#959d90] text-white text-center">subscribe</a>
+                            <div class="px-1"></div>
+                            <a href="" class="border border-black p-2 block w-[100px] text-black text-center bg-[#e8ebe5] hover:bg-[#959d90] hover:text-white">unsubscribe</a>
+                        </div>
+                        <div class="my-1 py-1"></div>
+                        <div class="p-2 mb-4">
+                            <h5 class="font-sen font-bold text-[15px] pb-2">Bio</h5>
+                            <p class="font-sen font-light text-[13px]">
+                                {{ request.user.profile.bio }}
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col2 col-span-2 max-sm:mt-[50px]">
+                    <div class="flex gap-4 new max-sm:px-3">
+                        <a href="{% url 'create' %}" class="border border-black p-2  block w-[100px] bg-[#959d90] text-white text-center">new post</a>
+                        <div class="px-1"></div>
+                        <a href="{% url 'editprofile' request.user.profile.id %}" class="border border-black p-2 block w-[100px] text-black text-center bg-[#e8ebe5] hover:bg-[#959d90] hover:text-white">edit profile</a>
+                        <div class="px-1"></div>
+                    </div>
+                    <div class="my-3 py-1"></div>
+                    <div class="my-3 py-1"></div>
+                    <h5 class="text-xl h5 font-semibold font-sen ">Posts</h5>
+                    <div class="row my-[100px]   flex flex-row gap-6 items-start justify-start flex-wrap max-sm:flex-col mt-1 mb-5">
+                        
+                        <div class="col flex border  gap-2 w-[450px] h-[220px]">
+                            <img src="" alt="blog-image" class="p-2 rounded-[10px] w-[150px] h-[200px]">
+                            <div class=" w-[350px] h-[200px] p-2">
+                                <a href="post.html" class="text-xl font-semibold font-sen block mb-3 hover:underline">
+                                    <h5 class="">Title of blogTitle of blogTitle of blogTitle of blogTitle of blog</h5>
+                                </a>
+                                
+                                <p class="font-sen font-extralight text-stone-600">Author Nmae</p>
+                                <p class="font-sen font-extralight text-stone-600">time written</p>  
+                                
+                                <div class="my-1 py-1"></div>
+
+                                <div class="flex gap-7 w-[205px]">
+                                    <a href="edit.html" class="border border-black p-1 block w-[100px] text-black text-center bg-[#e8ebe5] hover:bg-[#959d90] hover:text-white">edit post</a>
+                                    <a  id="modalBtn" class="border border-black p-1 block w-[120px] text-black text-center bg-[#e8ebe5] hover:bg-[#959d90] hover:text-white">delete post</a>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="col  flex border  gap-2 w-[450px] h-[220px]">
+                            <img src="" alt="blog-image" class="p-2 rounded-[10px] w-[150px] h-[200px]">
+                            <div class=" w-[350px] h-[200px] p-2">
+                                <a href="post.html" class="text-xl font-semibold font-sen block mb-3 hover:underline">
+                                    <h5 class="">Title of blogTitle of blogTitle of blogTitle of blogTitle of blog</h5>
+                                </a>
+                                
+                                <p class="font-sen font-extralight text-stone-600">Author Nmae</p>
+                                <p class="font-sen font-extralight text-stone-600">time written</p>  
+                                
+                                <div class="my-1 py-1"></div>
+                                
+                                <div class="flex gap-7 w-[205px]">
+                                    <a href="edit.html" class="border border-black p-1 block w-[100px] text-black text-center bg-[#e8ebe5] hover:bg-[#959d90] hover:text-white">edit post</a>
+                                    <a  id="modalBtn" class="border border-black p-1 block w-[120px] text-black text-center bg-[#e8ebe5] hover:bg-[#959d90] hover:text-white">delete post</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col  flex border  gap-2 w-[450px] h-[220px]">
+                            <img src="" alt="blog-image" class="p-2 rounded-[10px] w-[150px] h-[200px]">
+                            <div class=" w-[350px] h-[200px] p-2">
+                                <a href="post.html" class="text-xl font-semibold font-sen block mb-3 hover:underline">
+                                    <h5 class="">Title of blogTitle of blogTitle of blogTitle of blogTitle of blog</h5>
+                                </a>
+                                
+                                <p class="font-sen font-extralight text-stone-600">Author Nmae</p>
+                                <p class="font-sen font-extralight text-stone-600">time written</p>  
+    
+                                <div class="my-0 py-1"></div>
+
+                                <div class="flex  gap-7 w-[205px]">
+                                    <a href="edit.html" class="border border-black p-1 block w-[100px] text-black text-center bg-[#e8ebe5] hover:bg-[#959d90] hover:text-white">edit post</a>
+                                    <a  id="modalBtn" class="border border-black p-1 block w-[120px] text-black text-center bg-[#e8ebe5] hover:bg-[#959d90] hover:text-white">delete post</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- modal content  -->
+
+   
+  
+    
+</main>
+
+{% endblock %}

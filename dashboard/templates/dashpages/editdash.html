@@ -1,0 +1,51 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<main class=" mb-[200px] z-0  main max-sm:mt-0 ">
+    <hr class="border-t-1 border-t-black">
+    <div class="my-5 py-3"></div>
+    <div class="my-5 py-3"></div>
+    <section class="width p-4  bg-white"> 
+       <div class="form-c  shadow-md bg-[#bba58f]">
+            <form action="" method="post" class="form-control" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="w-[350px]  inline-block shadow-md">
+                    <h4 class="h4 text-white font-sen"><b>Edit Your Profile</b></h4>
+                </div>
+                <div class="my-1 py-1"></div>
+                <hr class="border-t-1 border-t-black">
+                <div class="my-1 py-1"></div>
+                <div class="py-3">
+                    <input class=" p-2 w-[500px]  rounded-sm max-sm:w-[300px]" type="text" name="fullname" id="name" placeholder="firstname"  >
+                </div>
+
+                <div class="py-3">
+                    <input class=" p-2 w-[500px]  rounded-sm max-sm:w-[300px]" type="text" name="fullname" id="name" placeholder="lastname" >
+                </div>
+
+                <div class="py-3">
+                    <input class=" p-2 w-[500px] border rounded-sm max-sm:w-[300px]" type="file" name="profile_pic" accept="image/*" id="profile_pic" >
+                </div>
+
+                <div class="py-3">
+                    <input class=" p-2 w-[500px] border rounded-sm max-sm:w-[300px]"  type="email" name="email"  id="email" placeholder="email" >
+                </div>
+
+                <div class="py-3">
+                    <textarea cols="30" rows="10" class="overflow-auto p-2 w-[500px]  rounded-sm max-sm:w-[300px]" type="text" name="bio" id="title" placeholder="Say something about yourself.."></textarea>
+                </div>
+
+                <div class="py-3">
+                    <button class="bg-white p-2 w-[100px] border rounded-sm max-sm:w-[100px]" type="submit" name="submit_btn"  id="button" >submit</button>
+                </div>
+            </form>
+
+            
+       </div>
+    </section>
+
+  
+    
+</main>
+
+{% endblock %}

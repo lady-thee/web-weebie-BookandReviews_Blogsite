@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&R</title>
+    <link rel="stylesheet" href=" /static/stylesheets/main.css?{% now 'U' %}">
+    <link rel="stylesheet" href=" /static/stylesheets/output.css?{% now 'U' %}">
+
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Sen&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body class="container  max-sm:w-[500px] max-md:w-[768px] max-lg:w-[1024px]">
+    <header class="w-full fixed top-0 left-0 bg-white z-10 ">
+        <div class="w-[200px] m-auto p-4 max-sm:flex justify-between max-sm:w-[500px]">
+            <a href="{% url 'index' %}" class="text-3xl no-underline hover:text-[#bba587] font-del">
+                <h1>Books & Reviews</h1>
+            </a>
+
+            <button class="hidden mr-2 border hover:border-gray-400 max-sm:block" id="menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>
+            </button>
+        </div>
+        
+        <hr class="border-t-1 border-t-black max-sm:hidden">
+
+        <nav class="w-full max-sm:hidden">
+            <div class="w-[500px] flex justify-center mx-auto pt-3 pb-3">
+                <a href="{% url 'index' %}" class="inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">Home</a>
+                <a href="{% url 'posts' %}" class="inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">Posts</a>
+                
+                <a href="#contact" class="inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">Contact us</a>
+                          <!-- if user signed in -->
+                <a href="" class="inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">About us</a>
+               {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <a href="{% url 'admin:index' %}" class="pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen text-black text-center">admin</a>
+                        <form method="POST" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="no-underline inline-block pt-3 pb-3 px-3  font-sen  hover:border-b-2 border-b-black">logout</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'profile' %}" class="pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen text-black text-center">profile</a>
+                        <form method="POST" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="no-underline inline-block pt-3 pb-3 px-3  font-sen hover:border-b-2 border-b-black">logout</button>
+                        </form>
+                    {% endif %}
+                {% else %}
+                    <a href="{% url 'login' %}" class="no-underline inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">Login</a>
+                {% endif %}
+                
+            </div>
+           
+      
+        </nav>
+        <!-- <hr class="border-t-1 border-t-black"> -->
+      
+        <div class="hidden w-[200px] absolute bg-white z-10 flex flex-col border items-center ml-[280px]" id="navshow">
+            <a href="{% url 'index' %}" class="inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">Home</a>
+            <a href="{% url 'posts' %}" class="inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">Posts</a>
+            <a href="about.html" class="inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">About us</a>
+            <a href="#contact" class="inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">Contact us</a>
+                <!-- use python if statement here id user is signed in  -->
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'admin:index' %}" class="pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen text-black text-center">admin</a>
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="no-underline inline-block pt-3 pb-3 px-3  font-sen  hover:border-b-2 border-b-black">logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'profile' %}" class="pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen text-black text-center">profile</a>
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="no-underline inline-block pt-3 pb-3 px-3  font-sen hover:border-b-2 border-b-black">logout</button>
+                    </form>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'login' %}" class="no-underline inline-block pt-3 pb-3 px-3 hover:border-b-2 border-b-black font-sen">Login</a>
+            {% endif %}
+                
+        </div>
+          
+    </header>
+
+    {% block content %}
+
+    
+
+    {% endblock %}
+    
+
+<footer class=" bg-[#959d90] w-full mt-[2000px]">
+    <div class="text-center p-5">
+        <p class="font-sen font-light">All rights reserved <span>&copy;2023</span> Books & Reviews</p>
+    </div>
+</footer>
+
+</body>
+<script src="/static/javascript/app.js?{% now U %}"></script>
+<script src="/static/javascript/messages.js?{% now U %}"></script>
+</html>
